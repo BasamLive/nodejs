@@ -1,11 +1,13 @@
-const http = require('http')
+const EventEmitter = require('events');
 
-const fs = require('fs')
+class Sales extends EventEmitter {
+	constructor(){
+		super();
+	}
+}
+const myEmitter = new Sales();
 
-const port = 3000;
+myEmitter.on('newSales',()=> console.log('There was a new sales'));
 
 
-const app = http.createServer((req,res)=>{
-	res.end("Hello world");
-
-}).listen(port,()=> console.log('server is running on port 3000....'))
+myEmitter.emit('newSales');
