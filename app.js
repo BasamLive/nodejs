@@ -1,12 +1,15 @@
 const express = require('express')
 const fs = require('fs');
-
-const app = express()
 const port = 3000
+
+
+// Middleware for using JSON as a response to a request
+const app = express()
+app.use(express.json());
+
 const tours = JSON.parse(fs.readFileSync('./natours/dev-data/data/tours-simple.json','utf-8'))
 
-app.use(express.json());
-// our request handlers 
+// Endpont handlers 
 const getAllTours = (req,res)=>{
 	res.status(200).json({
 		status:'success',
