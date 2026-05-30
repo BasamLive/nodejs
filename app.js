@@ -1,4 +1,5 @@
 const express = require('express')
+const morgan = require('morgan')
 const fs = require('fs');
 const {getAllTours, createTour,getTour,updateTour,deleteTour} = require('./controller.js')
 const port = 3000
