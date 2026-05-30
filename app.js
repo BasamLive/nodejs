@@ -1,6 +1,6 @@
 const express = require('express')
 const fs = require('fs');
-const {getAllTours, allPosts,getTour,patchTour,deleteTour} = require('./controller.js')
+const {getAllTours, createTour,getTour,updateTour,deleteTour} = require('./controller.js')
 const port = 3000
 
 const app = express()
@@ -10,12 +10,12 @@ app.use(express.json());
 
 app.route('/api/v1/tours')
 	.get(getAllTours)
-	.post(allPosts)
+	.post(createTour)
 
 
 app.route('/api/v1/tours/:id')
 	.get(getTour)
-	.patch(patchTour)
+	.patch(updateTour)
 	.delete(deleteTour)
 
 app.listen(port,'127.0.01',()=>{

@@ -13,7 +13,7 @@ module.exports.getAllTours = (req,res)=>{
 	})
 }
 
-module.exports.allPosts = (req,res)=>{
+module.exports.createTour = (req,res)=>{
 	
 	const newId = tours[tours.length - 1].id + 1;
 	const newTour = Object.assign({id: newId},req.body);
@@ -41,7 +41,7 @@ module.exports.getTour = (req,res)=>{
 	res.json(queryTour)	
 }
 
-module.exports.patchTour = (req,res)=>{
+module.exports.updateTour = (req,res)=>{
 	res.send("You can patch to this endpoint")
 };
 module.exports.deleteTour = (req,res)=>{
